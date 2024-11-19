@@ -26,7 +26,7 @@ https://github.com/overextended/ox_inventory/releases/latest/download/ox_invento
 - [es_extended](https://github.com/esx-framework/esx_core)
 - [qbx-core](https://github.com/Qbox-project/qbx_core) or [qb-core](https://github.com/qbcore-framework/qb-core)
 - [nd_core](https://github.com/ND-Framework/ND_Core)
-- [frp_lib](https://github.com/Faroeste-Roleplay/frp_lib) RedM
+- [RSGCore](https://github.com/Rexshack-RedM/rsg-core/tree/main) RedM
 
 ### Items
 - Inventory items are stored per-slot, with customisable metadata to support item uniqueness.

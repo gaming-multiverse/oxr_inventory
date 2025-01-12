@@ -1,4 +1,4 @@
-# ox_inventory (Modified Version)
+# oxr_inventory (Modified version of ox_inventory to work for RedM)
 
 ## Overview
 This is a modified version of the `oxr_inventory` script originally created by the Overextended team. The script includes the following changes:

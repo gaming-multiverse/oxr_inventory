@@ -62,19 +62,17 @@ local function canOpenInventory()
         return shared.info('cannot open inventory', '(cuffed)')
     end
 
+    if Citizen.InvokeNative(0x3AA24CCC0D451379, playerPed) then
+        return shared.info('cannot open inventory', '(cuffed)')
+    end
+
     return true
 end
 
 ---@param ped number
 ---@return boolean
 local function canOpenTarget(ped)
-	return IsPedFatallyInjured(ped)
-	or IsEntityPlayingAnim(ped, 'dead', 'dead_a', 3)
-	or IsPedCuffed(ped)
-	or IsEntityPlayingAnim(ped, 'mp_arresting', 'idle', 3)
-	or IsEntityPlayingAnim(ped, 'missminuteman_1ig_2', 'handsup_base', 3)
-	or IsEntityPlayingAnim(ped, 'missminuteman_1ig_2', 'handsup_enter', 3)
-	or IsEntityPlayingAnim(ped, 'random@mugging3', 'handsup_standing_base', 3)
+    return IsPedFatallyInjured(ped) or Citizen.InvokeNative(0x3AA24CCC0D451379, ped) or IsPedCuffed(ped) or IsEntityPlayingAnim(ped, 'script_proc@robberies@homestead@lonnies_shack@deception', 'hands_up_loop', 3)
 end
 
 local defaultInventory = {
@@ -560,7 +558,6 @@ local function useSlot(slot, noAnim)
 
 			if IS_RDR3 then
 				if not HasPedGotWeapon(playerPed, data.hash, 0, false) then
-
 					local currentWeaponAmmo = GetAmmoInPedWeapon(playerPed, data.hash)
 
 					-- RemoveAmmoFromPed
@@ -572,7 +569,6 @@ local function useSlot(slot, noAnim)
 					else
 						GiveDelayedWeaponToPed(playerPed, data.hash, item.metadata.ammo, true, 0) -- GIVE_DELAYED_WEAPON_TO_PED
 					end
-
 				end
 			end
 
@@ -587,7 +583,14 @@ local function useSlot(slot, noAnim)
 			end
 
 			if IS_RDR3 then
-				SetCurrentPedWeapon(cache.ped, data.hash, false, 0, false, false)
+				if data.hash == `WEAPON_BOW` or data.hash == `WEAPON_BOW_IMPROVED` then
+					SetPedAmmo(cache.ped, data.hash, 1)
+					SetCurrentPedWeapon(cache.ped, data.hash, false, 0, false, false)
+				else
+					SetCurrentPedWeapon(cache.ped, data.hash, false, 0, false, false)
+
+					-- TriggerEvent('rsg-weaponcomp:client:LoadComponents')
+				end
 			end
 
 
@@ -603,9 +606,16 @@ local function useSlot(slot, noAnim)
 		elseif currentWeapon then
 			if data.ammo then
 				if EnableWeaponWheel or currentWeapon.metadata.durability <= 0 then return end
+				local currentAmmo = nil
 
 				local clipSize = GetMaxAmmoInClip(playerPed, currentWeapon.hash, true)
-				local currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+
+				if  currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+					currentAmmo = currentWeapon.metadata.ammo
+				else
+					currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+				end
+
 				local _, maxAmmo = GetMaxAmmo(playerPed, currentWeapon.hash)
 
 				local isABow = currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED`
@@ -674,7 +684,12 @@ local function useSlot(slot, noAnim)
 						clipSize = GetMaxAmmoInClip(playerPed, currentWeapon.hash, true)
 					end
 
-					currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+					if  currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+						currentAmmo = currentWeapon.metadata.ammo
+					else
+						currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+					end
+
 					local missingAmmo = clipSize - currentAmmo
 					local addAmmo = resp.count > missingAmmo and missingAmmo or resp.count
 					local newAmmo = currentAmmo + addAmmo
@@ -688,18 +703,22 @@ local function useSlot(slot, noAnim)
 							TaskReloadWeapon(playerPed, true)
 						end
 					else
-						AddAmmoToPed(playerPed, currentWeapon.hash, addAmmo)
-						Wait(100)
+						if not isABow then
+							AddAmmoToPed(playerPed, currentWeapon.hash, addAmmo)
+							Wait(100)
 
-						local makePedReload = IS_GTAV and MakePedReload or N_0x79e1e511ff7efb13
-						makePedReload(playerPed)
+							local makePedReload = IS_GTAV and MakePedReload or N_0x79e1e511ff7efb13
+							makePedReload(playerPed)
 
-						SetTimeout(100, function()
-							while IsPedReloading(playerPed) do
-								DisableControlAction(0, 22, true)
-								Wait(0)
-							end
-						end)
+							SetTimeout(100, function()
+								while IsPedReloading(playerPed) do
+									DisableControlAction(0, 22, true)
+									Wait(0)
+								end
+							end)
+						else
+							AddAmmoToPed(playerPed, currentWeapon.hash, 1)
+						end
 					end
 
 					lib.callback.await('ox_inventory:updateWeapon', false, 'load', newAmmo, false, currentWeapon.metadata.specialAmmo)
@@ -840,9 +859,9 @@ local function registerCommands()
 			return client.closeInventory()
 		end
 
-		if cache.vehicle then
-			return openGlovebox(cache.vehicle)
-		end
+		-- if cache.vehicle then
+		-- 	return openGlovebox(cache.vehicle)
+		-- end
 
 		local closest = lib.points.getClosestPoint()
 
@@ -874,9 +893,9 @@ local function registerCommands()
 			return client.openInventory('stash', StashTarget)
 		end
 
-		if cache.vehicle then
-			return openGlovebox(cache.vehicle)
-		end
+		-- if cache.vehicle then
+		-- 	return openGlovebox(cache.vehicle)
+		-- end
 
 		local entity, entityType = Utils.Raycast(2|16)
 
@@ -1062,6 +1081,25 @@ local function registerCommands()
 				end
 			end
 		end)
+
+		Citizen.CreateThread(function()
+			while true do
+				local t = 500
+
+				if currentWeapon then
+					local pedShoot = IsPedShooting(cache.ped)
+					t = 5
+					if currentWeapon.metadata.ammo == 0 and currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+						DisablePlayerFiring(cache.ped, true)
+					elseif currentWeapon.metadata.ammo == 1 and pedShoot and currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+						currentWeapon.metadata.ammo = currentWeapon.metadata.ammo - 1
+
+						TriggerServerEvent('ox_inventory:updateWeapon', 'ammo', currentWeapon.metadata.ammo)
+					end
+				end
+				Wait(t)
+			end
+		end)
 	end
 
 	registerCommands = nil
@@ -1224,21 +1262,24 @@ end
 
 ---@param point CPoint
 local function onEnterDrop(point)
-	if not point.instance or point.instance == currentInstance and not point.entity then
-		local model = point.model or client.dropmodel
+    if not point.instance or point.instance == currentInstance and not point.entity then
+        local model = point.model or client.dropmodel
 
-		lib.requestModel(model)
+        -- Prevent breaking inventory on invalid point.model instead use default client.dropmodel
+        if not IsModelValid(model) and not IsModelInCdimage(model) then
+            model = client.dropmodel
+        end
+        lib.requestModel(model)
 
-		local entity = CreateObject(model, point.coords.x, point.coords.y, point.coords.z, false, true, true)
+        local entity = CreateObject(model, point.coords.x, point.coords.y, point.coords.z, false, true, true)
 
-		PlaceObjectOnGroundProperly(entity)
-		SetEntityAsMissionEntity(entity, true, false)
-		FreezeEntityPosition(entity, true)
-		SetPickupLight(entity, true)
-		SetEntityCollision(entity, false, true)
+        SetModelAsNoLongerNeeded(model)
+        PlaceObjectOnGroundProperly(entity)
+        FreezeEntityPosition(entity, true)
+        SetEntityCollision(entity, false, true)
 
-		point.entity = entity
-	end
+        point.entity = entity
+    end
 end
 
 local function onExitDrop(point)
@@ -1669,11 +1710,21 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 					if weaponAmmo then
 						TriggerServerEvent('ox_inventory:updateWeapon', 'ammo', weaponAmmo)
 
-						if client.autoreload and currentWeapon.ammo and GetAmmoInPedWeapon(playerPed, currentWeapon.hash) == 0 then
-							local slotId = Inventory.GetSlotIdWithItem(currentWeapon.ammo, { type = currentWeapon.metadata.specialAmmo }, false)
+						if currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+							if weaponAmmo == 0 then
+								local slotId = Inventory.GetSlotIdWithItem(currentWeapon.ammo, { type = currentWeapon.metadata.specialAmmo }, false)
 
-							if slotId then
-								CreateThread(function() useSlot(slotId) end)
+								if slotId then
+									CreateThread(function() useSlot(slotId) end)
+								end
+							end
+						else
+							if client.autoreload and currentWeapon.ammo and GetAmmoInPedWeapon(playerPed, currentWeapon.hash) == 0 then
+								local slotId = Inventory.GetSlotIdWithItem(currentWeapon.ammo, { type = currentWeapon.metadata.specialAmmo }, false)
+
+								if slotId then
+									CreateThread(function() useSlot(slotId) end)
+								end
 							end
 						end
 
@@ -1694,6 +1745,12 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 							if currentAmmo <= 0 then
 								SetPedInfiniteAmmo(playerPed, false, currentWeapon.hash)
 							end
+						elseif currentWeapon.hash == `WEAPON_BOW` or currentWeapon.hash == `WEAPON_BOW_IMPROVED` then
+							currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
+
+							if weaponAmmo == 0 then
+								currentWeapon.metadata.durability = currentWeapon.metadata.durability - (durabilityDrain * math.abs((weaponAmmo or 0.1) - currentAmmo))
+							end
 						else
 							currentAmmo = GetAmmoInPedWeapon(playerPed, currentWeapon.hash)
 
@@ -1713,32 +1770,12 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 						else currentWeapon.timer = GetGameTimer() + 400 end
 					end
 				elseif currentWeapon.throwable then
-					if not invBusy and IsControlPressed(0, 24) then
-						invBusy = 1
-
-						CreateThread(function()
-							local weapon = currentWeapon
-
-							while currentWeapon and (not IsPedWeaponReadyToShoot(cache.ped) or IsDisabledControlPressed(0, 24)) and GetSelectedPedWeapon(playerPed) == weapon.hash do
-								Wait(0)
-							end
-
-							if IS_GTAV then
-
-								if GetSelectedPedWeapon(playerPed) == weapon.hash then Wait(700) end
-
-								while IsPedPlantingBomb(playerPed) do Wait(0) end
-
-							end
-
-							TriggerServerEvent('ox_inventory:updateWeapon', 'throw', nil, weapon.slot)
-
-							plyState.invBusy = false
-							currentWeapon = nil
-
-							RemoveWeaponFromPed(playerPed, weapon.hash)
-							TriggerEvent('ox_inventory:currentWeapon')
-						end)
+					if IsPedShooting(cache.ped) then
+						TriggerServerEvent("oxr_inventory:server:RemoveTrownWeapon", currentWeapon.name)
+					end
+				elseif currentWeapon.name == "WEAPON_LASSO" then
+					if IsPedShooting(cache.ped) then
+						TriggerServerEvent('oxr_inventory:server:SetLassoDurability')
 					end
 				elseif currentWeapon.melee and IsControlJustReleased(0, 24) and IsPedPerformingMeleeAction(playerPed) then
 					currentWeapon.melee += 1
@@ -1904,6 +1941,77 @@ RegisterNUICallback('giveItem', function(data, cb)
 
 		exports.ws_givemug:handleVisability(data.slot, data.count)
 	end
+end)
+
+RegisterNUICallback('getMoney', function(data, cb)
+	cb(1)
+    local RSGCore = exports['rsg-core']:GetCoreObject()
+
+	RSGCore.Functions.GetPlayerData(function(PlayerData)
+		local input = lib.inputDialog("Total money: $" .. PlayerData.money.cash, {
+			{
+				placeholder = "Enter the amount of money you want to get",
+				type = 'number',
+				options = {
+					{
+						label = 'Cash',
+						value = 'cash'
+					},
+				},
+				required = true,
+			},
+		})
+
+		if not input then
+			return
+		end
+
+		TriggerServerEvent("rsg-banking:server:getMoneyClip", input[1])
+	end)
+
+    -- TriggerServerEvent('rsg-adminmenu:server:financeadd', data.id, input[1], input[2])
+end)
+
+RegisterNUICallback('GetPlayerMoney', function(data, cb)
+    local RSGCore = exports['rsg-core']:GetCoreObject()
+
+	RSGCore.Functions.GetPlayerData(function(PlayerData)
+		cb(PlayerData.money.cash)
+	end)
+end)
+
+RegisterNUICallback('getOtherMoney', function(data, cb)
+	cb(1)
+	local otherPlayerMoney = lib.callback.await('ox_inventory:checkOtherPlayersMoney', false, currentInventory.id)
+
+		local input = lib.inputDialog("Total money: $" .. otherPlayerMoney, {
+			{
+				placeholder = "Enter the amount of money you want to steal",
+				type = 'number',
+				options = {
+					{
+						label = 'Cash',
+						value = 'cash'
+					},
+				},
+				required = true,
+			},
+		})
+
+		if not input then
+			return
+		end
+
+		TriggerServerEvent("rsg-banking:server:getOthersMoneyClip", currentInventory.id, input[1])
+
+    -- TriggerServerEvent('rsg-adminmenu:server:financeadd', data.id, input[1], input[2])
+end)
+
+RegisterNUICallback('GetOtherPlayerMoney', function(data, cb)
+    local RSGCore = exports['rsg-core']:GetCoreObject()
+	local otherPlayerMoney = lib.callback.await('ox_inventory:checkOtherPlayersMoney', false, currentInventory.id)
+
+	cb(otherPlayerMoney)
 end)
 
 -- NUI callback to start placement

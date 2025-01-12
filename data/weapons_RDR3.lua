@@ -39,7 +39,7 @@ return {
             prop = 'w_revolver_schofield02',
         },
         ['WEAPON_REVOLVER_LEMAT'] = {
-            label = 'LeMat Revolver',
+            label = 'Lemat Revolver',
             weight = 3500,
             durability = 0.2,
             ammoname = 'ammo_revolver',
@@ -59,6 +59,7 @@ return {
             weight = 3000,
             durability = 0.2,
             ammoname = 'ammo_pistol',
+            prop = 'p_pistol_semiauto_cs01x',
         },
         ['WEAPON_PISTOL_M1899'] = {
             label = 'FN Browning',
@@ -66,18 +67,21 @@ return {
             weight = 3000,
             durability = 0.2,
             ammoname = 'ammo_pistol',
+            prop = 'p_pistol_semiauto_cs01x',
         },
         ['WEAPON_PISTOL_MAUSER'] = {
             label = 'Mauser C96 Pistol',
             weight = 3000,
             durability = 0.2,
             ammoname = 'ammo_pistol',
+            prop = 'p_pistol_semiauto_cs01x',
         },
         ['WEAPON_PISTOL_SEMIAUTO'] = {
             label = 'Borchardt C-93 Pistol',
             weight = 3000,
             durability = 0.2,
             ammoname = 'ammo_pistol',
+            prop = 'p_pistol_semiauto_cs01x',
         },
         -- CARBINE
         ['WEAPON_REPEATER_CARBINE'] = {
@@ -86,7 +90,7 @@ return {
             weight = 6500,
             durability = 0.2,
             ammoname = 'ammo_repeater',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_REPEATER_WINCHESTER'] = {
             label = 'Repeater Winchester',
@@ -94,7 +98,7 @@ return {
             weight = 6500,
             durability = 0.2,
             ammoname = 'ammo_repeater',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_REPEATER_HENRY'] = {
             label = 'Repeater Litchfield',
@@ -102,23 +106,23 @@ return {
             weight = 6500,
             durability = 0.2,
             ammoname = 'ammo_repeater',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_REPEATER_EVANS'] = {
             label = 'Repeater Evans',
             weight = 6500,
             durability = 0.2,
             ammoname = 'ammo_repeater',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         -- RIFLES
         ['WEAPON_RIFLE_VARMINT'] = {
-            label = 'Rifle Anti-Pest ',
+            label = 'Rifle Varmint ',
             description = 'Model 1890',
             weight = 7500,
             durability = 0.2,
             ammoname = 'ammo_22',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_RIFLE_SPRINGFIELD'] = {
             label = 'Rifle Springfield',
@@ -126,7 +130,7 @@ return {
             weight = 7500,
             durability = 0.15,
             ammoname = 'ammo_rifle',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_RIFLE_BOLTACTION'] = {
             label = 'Rifle Bolt Action',
@@ -134,40 +138,40 @@ return {
             weight = 7500,
             durability = 0.3,
             ammoname = 'ammo_rifle',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
         ['WEAPON_RIFLE_ELEPHANT'] = {
             label = 'Rifle Elephant',
             weight = 12500,
             durability = 0.2,
             ammoname = 'ammo_rifle',
-            prop = 'p_gun_gunset01x',
+            prop = 'p_cs_rifle_strap',
         },
 
         -- SHOTGUN
         ['WEAPON_SHOTGUN_DOUBLEBARREL'] = {
-            label = 'Shotgun Double action Hammer',
+            label = 'Shotgun',
             description = 'Model 1878',
             weight = 15000,
-            durability = 0.2,
+            durability = 0.3,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC'] = {
-            label = 'Shotgun Double action exotic',
+            label = 'Shotgun Exotic',
             description = 'Model 1878',
             weight = 15000,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN_SAWEDOFF'] = {
-            label = 'Sawn Shotgun Hamerless',
+            label = 'Shotgun Sawedoff',
             description = 'Model 1883',
             weight = 15000,
-            durability = 0.2,
+            durability = 0.4,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN04'] = {
             label = 'Winchester shotgun',
@@ -175,7 +179,7 @@ return {
             weight = 15000,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN05'] = {
             label = 'Winchester shotgun',
@@ -183,14 +187,14 @@ return {
             weight = 15000,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN_SEMIAUTO'] = {
             label = 'Shotgun Browning Semi-Automatic',
             weight = 15000,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN_PUMP'] = {
             label = 'Shotgun Pump',
@@ -198,14 +202,14 @@ return {
             weight = 12500,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
         ['WEAPON_SHOTGUN_REPEATING'] = {
             label = 'Shotgun Repeater',
             weight = 15000,
             durability = 0.2,
             ammoname = 'ammo_shotgun',
-            prop = 'p_guncase01x',
+            prop = 'w_dis_sho_repeating01',
         },
 
         -- sniper
@@ -215,7 +219,7 @@ return {
             weight = 25000,
             durability = 0.2,
             ammoname = 'ammo_rifle',
-            prop = 'p_guncase01x',
+            prop = 's_oldrifle01x',
         },
         ['WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC'] = {
             label = 'Steel Remington',
@@ -223,7 +227,7 @@ return {
             weight = 25000,
             durability = 0.2,
             ammoname = 'ammo_rifle',
-            prop = 'p_guncase01x',
+            prop = 's_oldrifle01x',
         },
         ['WEAPON_SNIPERRIFLE_CARCANO'] = {
             label = 'Rifle Carcano',
@@ -231,7 +235,7 @@ return {
             weight = 25000,
             durability = 0.2,
             ammoname = 'ammo_rifle',
-            prop = 'p_guncase01x',
+            prop = 's_oldrifle01x',
         },
 
         -- MELEE
@@ -262,19 +266,19 @@ return {
             prop = 'w_melee_lasso01',
         },
         ['WEAPON_MELEE_KNIFE'] = {
-            label = 'Faca',
+            label = 'Knife',
             weight = 300,
             durability = 0.2,
             prop = 'p_knife01x',
         },
         ['WEAPON_MELEE_KNIFE_JAWBONE'] = {
-            label = 'Faca Jawbone',
+            label = 'Knife Jawbone',
             weight = 300,
             durability = 0.2,
             prop = 'p_knife02x',
         },
         ['WEAPON_MELEE_HAMMER'] = {
-            label = 'Martelo',
+            label = 'Hammer',
             weight = 300,
             durability = 0.2,
             prop = 'p_hammer04x',
@@ -298,7 +302,7 @@ return {
             prop = 'p_knife01x',
         },
         ['WEAPON_MELEE_TORCH'] = {
-            label = 'Tocha',
+            label = 'Torch',
             weight = 300,
             durability = 0.2,
             prop = 'p_torch01x',
@@ -316,19 +320,19 @@ return {
             prop = 'p_machet01x',
         },
         ['WEAPON_MELEE_LANTERN'] = {
-            label = 'Lanterna Silver',
+            label = 'Lantern',
             weight = 200,
             durability = 0.2,
             prop = 'p_latern04x',
-            buttons =
-            {
-                {
-                    label = "Change position",
-                    action = function(slot)
-                        TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
-                    end
-                }
-            }
+            -- buttons =
+            -- {
+            --     {
+            --         label = "Change position",
+            --         action = function(slot)
+            --             TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
+            --         end
+            --     }
+            -- }
 
         },
         ['WEAPON_MELEE_DAVY_LANTERN'] = {
@@ -336,15 +340,15 @@ return {
             weight = 200,
             durability = 0.2,
             prop = 'p_latern04x',
-            buttons =
-            {
-                {
-                    label = "Change position",
-                    action = function(slot)
-                        TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
-                    end
-                }
-            }
+            -- buttons =
+            -- {
+            --     {
+            --         label = "Change position",
+            --         action = function(slot)
+            --             TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
+            --         end
+            --     }
+            -- }
 
         },
         ['WEAPON_MELEE_LANTERN_ELECTRIC'] = {
@@ -352,15 +356,15 @@ return {
             weight = 200,
             durability = 0.2,
             prop = 'p_latern04x',
-            buttons =
-            {
-                {
-                    label = "Change position",
-                    action = function(slot)
-                        TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
-                    end
-                }
-            }
+            -- buttons =
+            -- {
+            --     {
+            --         label = "Change position",
+            --         action = function(slot)
+            --             TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
+            --         end
+            --     }
+            -- }
 
         },
         ['WEAPON_MELEE_MACHETE_COLLECTOR'] = {
@@ -392,15 +396,15 @@ return {
             weight = 200,
             durability = 0.2,
             prop = 'p_latern04x',
-            buttons =
-            {
-                {
-                    label = "Change position",
-                    action = function(slot)
-                        TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
-                    end
-                }
-            }
+            -- buttons =
+            -- {
+            --     {
+            --         label = "Change position",
+            --         action = function(slot)
+            --             TriggerEvent('Inventory:Weapon:ReplaceCurrentAttachPoint', slot)
+            --         end
+            --     }
+            -- }
         },
         ['WEAPON_MELEE_MACHETE_HORROR'] = {
             label = 'Pirate Machete',
@@ -412,7 +416,7 @@ return {
             label = 'Moonshine Jug',
             weight = 200,
             durability = 0.2,
-            prop = 's_inv_moonsahine01x',
+            prop = 's_inv_moonshine01x',
         },
 
         ['WEAPON_THROWN_DYNAMITE'] = {
@@ -527,15 +531,18 @@ return {
     },
 
     Components = {
-        ['at_flashlight'] = {
-            label = 'Tactical Flashlight',
+        ['at_revolver_cattleman_long'] = {
+            label = 'Long Cattleman Barrel',
             weight = 120,
-            type = 'flashlight',
+            type = 'revolver_cattleman',
             client = {
-                component = {`COMPONENT_AT_PI_FLSH`,`COMPONENT_AT_AR_FLSH`},
+                defaultComponent = `COMPONENT_REVOLVER_CATTLEMAN_BARREL_SHORT`,
+                component = {
+                    `COMPONENT_REVOLVER_CATTLEMAN_BARREL_LONG`
+                },
                 usetime = 2500
             }
-        }
+        },
     },
 
     Ammo = {

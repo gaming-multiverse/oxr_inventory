@@ -3,9 +3,17 @@ return {
 		label = "Money",
 		prop = "p_moneystack03x",
 	},
+	["moneyclip"] = {
+		label = "Money Clip",
+		weight = 0, -- In Grams
+		stack = false,
+		close = false, -- if should close inventory when used
+		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_moneystack03x",
+	},
 	["black_money"] = {
 		label = "Money Roll",
-		prop = "p_moneystack01x",
+		prop = "p_moneystack03x",
 	},
 
 	-- General Store Items
@@ -70,7 +78,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "s_cankidney01x",
+		prop = "p_can09x",
 	},
 
 	["coffeepackage"] = {
@@ -82,7 +90,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_gourdwater01x",
+		prop = "s_coffeetin01x",
 		client = {
 			image = "coffee.png",
 		},
@@ -124,7 +132,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 	},
 
 	["bandage"] = {
@@ -146,7 +154,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_can09x",
+		prop = "p_tin_pomade01x",
 	},
 
 	["soap"] = {
@@ -170,7 +178,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_si_pocketwatch01x",
+		prop = "s_oldpocketwatch01x",
 	},
 
 	["compass"] = {
@@ -194,7 +202,7 @@ return {
 		degrade = 21600, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_map02x",
+		prop = "p_shopmap01x",
 	},
 
 	["campbook"] = {
@@ -206,7 +214,7 @@ return {
 		degrade = 21600, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_book06x",
+		prop = "p_book01x",
 	},
 
 	["mineralbook"] = {
@@ -218,7 +226,7 @@ return {
 		degrade = 21600, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_book06x",
+		prop = "p_book02x",
 	},
 
 	-- Doctor Items
@@ -675,7 +683,7 @@ return {
 		degrade = 10080, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_brushhorse01x",
+		prop = "p_brushhorse02x",
 	},
 
 	["horsetag"] = {
@@ -728,10 +736,8 @@ return {
 	["heal_for_horse"] = {
 		label = "Medicine for horse",
 		description = "Handy if your horse is injured",
-		weight = 200, -- In Grams
+		weight = 400, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 14400, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_cs_syringe01x",
@@ -798,8 +804,6 @@ return {
 		description = "Cleens your horses Hoofs",
 		weight = 250, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 7200, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_hoofnippers01x",
@@ -813,6 +817,7 @@ return {
 		stack = false,
 		close = true,
 		allowArmed = false,
+		prop = "p_cs_smallnotecard01x",
 	},
 
 	["thermometer"] = {
@@ -850,6 +855,16 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
+		prop = "p_paper02x",
+	},
+
+	["repair_kit"] = {
+		label = "Wagon Repair Kit",
+		description = "Handy if your wagon is broken",
+		weight = 15000, -- In Grams
+		stack = false,
+		close = true, -- if should close inventory when used
+		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_cs_scroll01x",
 	},
 
@@ -858,7 +873,7 @@ return {
 		description = "A valuable papper",
 		weight = 500, -- In Grams
 		decay = true,
-		degrade = 7200, -- Minutes
+		degrade = 20160, -- Minutes
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
@@ -934,8 +949,20 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "mp005_s_posse_guncleaningkit_01x",
+		prop = "s_firstaidkit_sm01x",
 	},
+
+	["repairtool"] = {
+        label = "Weapon Repair Tool",
+        description = "Handy if you want to repair your weapon",
+        weight = 5000, -- In Grams
+        decay = true,
+        degrade = 21600, -- Minutes
+        stack = true,
+        close = false, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "s_firstaidkit_sm01x",
+    },
 
 	["goldbar"] = {
 		label = "Goldbar",
@@ -944,7 +971,7 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "s_pickup_goldbar01x",
+		prop = "p_inv_treasuregoldbar01x",
 	},
 
 	["campfire"] = {
@@ -964,7 +991,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "s_frozennote01x",
+		prop = "s_inv_businesscard02x",
 	},
 
 	["sussyticket"] = {
@@ -976,7 +1003,7 @@ return {
 		degrade = 7200, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "s_frozennote01x",
+		prop = "s_inv_businesscard02x",
 	},
 
 	["cwnotepad"] = {
@@ -988,7 +1015,7 @@ return {
 		degrade = 14400, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_note02x",
+		prop = "p_book08x",
 	},
 
 	["gospel"] = {
@@ -999,7 +1026,7 @@ return {
 		degrade = 14400, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		"p_cs_note02x",
+		prop = "p_book08x",
 	},
 	["cwnote"] = {
 		label = "Note",
@@ -1010,7 +1037,7 @@ return {
 		degrade = 14400, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		"p_cs_note02x",
+		prop = "p_cs_note02x",
 	},
 
 	["canteen100"] = {
@@ -1020,7 +1047,7 @@ return {
 		stack = false,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 		client = {
 			image = "canteen.png",
 		},
@@ -1033,7 +1060,7 @@ return {
 		stack = false,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 		client = {
 			image = "canteen.png",
 		},
@@ -1046,7 +1073,7 @@ return {
 		stack = false,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 		client = {
 			image = "canteen.png",
 		},
@@ -1059,7 +1086,7 @@ return {
 		stack = false,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 		client = {
 			image = "canteen.png",
 		},
@@ -1072,7 +1099,7 @@ return {
 		stack = false,
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "p_cs_canteen_hercule",
+		prop = "p_canteen01x",
 		client = {
 			image = "canteen.png",
 		},
@@ -1085,8 +1112,6 @@ return {
 		description = "Usable Tool",
 		weight = 750, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_lockpick01x",
@@ -1173,7 +1198,7 @@ return {
 		degrade = 20160, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
-		prop = "s_inv_moonshine01x",
+		prop = "p_moonshinebtl01x",
 	},
 
 	["cokebrick"] = {
@@ -1271,7 +1296,7 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "alp_rock_screen_sim_03",
+		prop = "p_rockthrow02x",
 	},
 
 	["golden_nugget"] = {
@@ -1311,7 +1336,7 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "mp009_p_mp_jewelemerald02x",
+		prop = "s_rc_emerald01x",
 	},
 
 	["silverore"] = {
@@ -1321,7 +1346,7 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "gua_rock_scree_sim_06",
+		prop = "s_scrap_metal01x",
 	},
 
 	["ironore"] = {
@@ -1331,7 +1356,7 @@ return {
 		stack = true,
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "gua_rock_scree_sim_06",
+		prop = "s_scrap_metal01x",
 	},
 
 	["sharpening_stonepackage"] = {
@@ -1341,7 +1366,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "gua_rock_scree_sim_06",
+		prop = "s_scrap_metal01x",
 		client = {
 			image = "package.png",
 		},
@@ -1354,7 +1379,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "gua_rock_scree_sim_06",
+		prop = "s_scrap_metal01x",
 	},
 
 	["goldpan"] = {
@@ -1374,8 +1399,6 @@ return {
 		description = "A naturally occurring lump of pure, raw gold",
 		weight = 200, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_goldnuggetgroup01x",
@@ -1386,8 +1409,6 @@ return {
 		description = "A naturally occurring lump of pure, raw gold",
 		weight = 250, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_goldnuggetgroup01x",
@@ -1398,8 +1419,6 @@ return {
 		description = "A naturally occurring lump of pure, raw gold",
 		weight = 300, -- In Grams
 		stack = true,
-		decay = true,
-		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_goldnuggetgroup01x",
@@ -1593,10 +1612,23 @@ return {
 		description = "used by saloons",
 		weight = 50, -- In Grams
 		stack = true,
-		decay = false,
+		decay = true,
+		degrade = 4320, -- Minutes
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_bottle007x",
+	},
+
+	["tequila"] = {
+		label = "Tequila",
+		description = "used by saloons",
+		weight = 300, -- In Grams
+		stack = true,
+		decay = true,
+		degrade = 4320, -- Minutes
+		close = true, -- if should close inventory when used
+		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_gen_bottletequila01x",
 	},
 
 	["whiskey"] = {
@@ -1604,7 +1636,8 @@ return {
 		description = "used by saloons",
 		weight = 50, -- In Grams
 		stack = true,
-		decay = false,
+		decay = true,
+		degrade = 4320, -- Minutes
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_bottle007x",
@@ -1615,7 +1648,8 @@ return {
 		description = "used by saloons",
 		weight = 50, -- In Grams
 		stack = true,
-		decay = false,
+		decay = true,
+		degrade = 4320, -- Minutes
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_bottle007x",
@@ -1626,7 +1660,8 @@ return {
 		description = "used by saloons",
 		weight = 50, -- In Grams
 		stack = true,
-		decay = false,
+		decay = true,
+		degrade = 4320, -- Minutes
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_bottle007x",
@@ -1637,7 +1672,8 @@ return {
 		description = "used by saloons",
 		weight = 50, -- In Grams
 		stack = true,
-		decay = false,
+		decay = true,
+		degrade = 4320, -- Minutes
 		close = false, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
 		prop = "p_bottle007x",
@@ -1724,6 +1760,15 @@ return {
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
 		prop = "p_cigarbox02x",
+	},
+
+	["doctorsatchel"] = {
+		label = "Doctor satchel",
+		weight = 0, -- In Grams
+		stack = true,
+		close = true, -- if should close inventory when used
+		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_bag01x",
 	},
 
 	--Oxy Run
@@ -1842,6 +1887,19 @@ return {
 
 	--Farming Items
 
+	["bberryseed"] = {
+		label = "Black Berry Seed",
+		description = "Farming Tool",
+		weight = 250, -- In Grams
+		stack = true,
+		close = true, -- if should close inventory when used
+		allowArmed = false, -- should we let them use with weapons?
+		prop = "p_sack05x",
+		client = {
+			image = "seed.png",
+		},
+	},
+
 	["cornseed"] = {
 		label = "Corn Seed",
 		description = "Farming Tool",
@@ -1849,7 +1907,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1872,7 +1930,8 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack06x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1885,7 +1944,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_sugar",
+		prop = "p_sugar02x",
 	},
 
 	["tobaccoseed"] = {
@@ -1895,7 +1954,8 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack07x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1918,7 +1978,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1941,7 +2001,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1964,7 +2024,8 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack06x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -1987,7 +2048,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2010,7 +2071,8 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack07x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2023,7 +2085,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "indtobacco_p",
+		prop = "p_sack05x",
 	},
 
 	["hopseed"] = {
@@ -2033,7 +2095,8 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack07x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2046,7 +2109,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "mp005_s_inv_agarita_01x",
+		prop = "p_sack05x",
 	},
 
 	["agaritaseed"] = {
@@ -2056,7 +2119,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2069,7 +2132,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "mp005_s_inv_agarita_01x",
+		prop = "p_sack05x",
 	},
 
 	["wildmintseed"] = {
@@ -2079,7 +2142,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2092,7 +2155,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "wildmint_p",
+		prop = "p_sack05x",
 	},
 
 	["ramsheadseed"] = {
@@ -2102,7 +2165,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2125,7 +2188,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2148,7 +2211,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2171,7 +2234,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2194,7 +2257,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2217,7 +2280,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2240,7 +2303,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2263,7 +2326,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2286,7 +2349,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2309,7 +2372,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2332,7 +2395,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2355,7 +2418,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2378,7 +2441,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2391,7 +2454,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2404,7 +2467,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "oregano_p",
+		prop = "p_sack05x",
 	},
 
 	["oreganoseed"] = {
@@ -2414,7 +2477,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2427,7 +2490,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "oregano_p",
+		prop = "p_sack05x",
 	},
 
 	["thymeseed"] = {
@@ -2437,7 +2500,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "p_cs_sackcorn01x",
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -2450,7 +2513,7 @@ return {
 		stack = true,
 		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
-		prop = "oregano_p",
+		prop = "p_sack05x",
 	},
 
 	["fertilizer"] = {
@@ -2521,7 +2584,7 @@ return {
 		allowArmed = false, -- should we let them use with weapons?
 		decay = true,
 		degrade = 10080, -- Minutes
-		prop = "p_wateringcan01x",
+		prop = "p_teapot01x",
 	},
 
 	-- Herbs
@@ -2532,7 +2595,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["bberry"] = {
@@ -2542,7 +2605,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["prariepoppy"] = {
@@ -2552,7 +2615,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["milkweed"] = {
@@ -2562,7 +2625,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["berry"] = {
@@ -2572,7 +2635,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["chocdaisy"] = {
@@ -2582,7 +2645,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["desertsage"] = {
@@ -2592,7 +2655,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["redsage"] = {
@@ -2602,7 +2665,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["bitterweed"] = {
@@ -2612,7 +2675,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["orleander"] = {
@@ -2622,7 +2685,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["engmace"] = {
@@ -2632,7 +2695,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["bloodflower"] = {
@@ -2642,7 +2705,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["chanterelles"] = {
@@ -2652,7 +2715,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["ginseng"] = {
@@ -2662,7 +2725,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["wintergreen"] = {
@@ -2672,7 +2735,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["burdock"] = {
@@ -2682,7 +2745,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["huckleberry"] = {
@@ -2692,7 +2755,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["bulrush"] = {
@@ -2702,7 +2765,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["blackcurrant"] = {
@@ -2712,7 +2775,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["cardinalflower"] = {
@@ -2722,7 +2785,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["wisteria"] = {
@@ -2732,7 +2795,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["yarrow"] = {
@@ -2742,7 +2805,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["feverfew"] = {
@@ -2752,7 +2815,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["viosnwdrp"] = {
@@ -2762,7 +2825,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["creek_plum"] = {
@@ -2772,7 +2835,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["texasbon"] = {
@@ -2782,7 +2845,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["bay_bolete"] = {
@@ -2792,7 +2855,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["wrhubarb"] = {
@@ -2802,7 +2865,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["goldencurrant"] = {
@@ -2812,7 +2875,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	["humbirdsage"] = {
@@ -2822,7 +2885,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "mp007_harrietum_p",
+		prop = "p_sack05x",
 	},
 
 	-- Fishes
@@ -3081,7 +3144,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3094,7 +3157,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3107,7 +3170,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3120,7 +3183,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3133,7 +3196,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3146,7 +3209,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3159,7 +3222,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3172,7 +3235,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3185,7 +3248,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3198,7 +3261,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3211,7 +3274,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3224,7 +3287,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3237,7 +3300,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3250,7 +3313,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3263,7 +3326,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3276,7 +3339,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3289,7 +3352,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3302,7 +3365,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3315,7 +3378,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3328,7 +3391,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3341,7 +3404,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3354,7 +3417,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3367,7 +3430,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3380,7 +3443,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3393,7 +3456,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3406,7 +3469,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3419,7 +3482,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3432,7 +3495,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3445,7 +3508,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3458,7 +3521,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3471,7 +3534,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3484,7 +3547,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_2.png",
 		},
@@ -3497,7 +3560,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins.png",
 		},
@@ -3510,7 +3573,7 @@ return {
 		stack = true,
 		close = true,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		client = {
 			image = "provision_loanshark_skins_3.png",
 		},
@@ -3520,7 +3583,7 @@ return {
 		label = "Redfox Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3532,7 +3595,7 @@ return {
 		label = "Redfox Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3544,7 +3607,7 @@ return {
 		label = "Goat Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3556,7 +3619,7 @@ return {
 		label = "Goat Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3568,7 +3631,7 @@ return {
 		label = "Goat Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3580,7 +3643,7 @@ return {
 		label = "Javelina Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3592,7 +3655,7 @@ return {
 		label = "Javelina Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3604,7 +3667,7 @@ return {
 		label = "Javelina Pelt",
 		weight = 250,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3616,7 +3679,7 @@ return {
 		label = "Moose Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3628,7 +3691,7 @@ return {
 		label = "Moose Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3640,7 +3703,7 @@ return {
 		label = "Moose Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3652,7 +3715,7 @@ return {
 		label = "Ox Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3664,7 +3727,7 @@ return {
 		label = "Ox Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3676,7 +3739,7 @@ return {
 		label = "Ox Pelt",
 		weight = 1500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3688,7 +3751,7 @@ return {
 		label = "Panther Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3700,7 +3763,7 @@ return {
 		label = "Panther Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3712,7 +3775,7 @@ return {
 		label = "Panther Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3724,7 +3787,7 @@ return {
 		label = "Pig Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3736,7 +3799,7 @@ return {
 		label = "Pig Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3748,7 +3811,7 @@ return {
 		label = "Pig Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3760,7 +3823,7 @@ return {
 		label = "Pronghorn Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3772,7 +3835,7 @@ return {
 		label = "Pronghorn Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3784,7 +3847,7 @@ return {
 		label = "Pronghorn Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3796,7 +3859,7 @@ return {
 		label = "Bighornram Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3808,7 +3871,7 @@ return {
 		label = "Bighornram Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3820,7 +3883,7 @@ return {
 		label = "Bighornram Pelt",
 		weight = 800,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3832,7 +3895,7 @@ return {
 		label = "Sheep Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3844,7 +3907,7 @@ return {
 		label = "Sheep Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3856,7 +3919,7 @@ return {
 		label = "Sheep Pelt",
 		weight = 300,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3868,7 +3931,7 @@ return {
 		label = "Wolf Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3880,7 +3943,7 @@ return {
 		label = "Wolf Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3892,7 +3955,7 @@ return {
 		label = "Wolf Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3904,7 +3967,7 @@ return {
 		label = "Large Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3916,7 +3979,7 @@ return {
 		label = "Large Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3928,7 +3991,7 @@ return {
 		label = "Large Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3940,7 +4003,7 @@ return {
 		label = "Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3952,7 +4015,7 @@ return {
 		label = "Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -3964,7 +4027,7 @@ return {
 		label = "Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -3976,7 +4039,7 @@ return {
 		label = "Raccoon Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -3988,7 +4051,7 @@ return {
 		label = "Raccoon Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Good (* *)",
@@ -4000,7 +4063,7 @@ return {
 		label = "Raccoon Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Poor (*)",
@@ -4012,7 +4075,7 @@ return {
 		label = "Leg Alligator Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4024,7 +4087,7 @@ return {
 		label = "Leg Beaver Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4036,7 +4099,7 @@ return {
 		label = "Leg Beaver Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4048,7 +4111,7 @@ return {
 		label = "Leg Beaver Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4060,7 +4123,7 @@ return {
 		label = "Leg Beaver Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4072,7 +4135,7 @@ return {
 		label = "Leg Boar Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4084,7 +4147,7 @@ return {
 		label = "Leg Cougar Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4096,7 +4159,7 @@ return {
 		label = "Leg Coyote Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4108,7 +4171,7 @@ return {
 		label = "Leg Panther Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4120,7 +4183,7 @@ return {
 		label = "Leg Wolf Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4132,7 +4195,7 @@ return {
 		label = "Leg Bison Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4144,7 +4207,7 @@ return {
 		label = "Leg Bighorn Ram Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4156,7 +4219,7 @@ return {
 		label = "Leg Fox Pelt",
 		weight = 500,
 		allowArmed = false,
-		prop = "p_cs_cowpelt2_xlarge",
+		prop = "p_cs_pelt_medlarge_roll",
 		stack = true,
 		close = true,
 		description = "Perfect (* * *)",
@@ -4468,7 +4531,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4490,7 +4553,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4515,7 +4578,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4537,7 +4600,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4562,7 +4625,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4587,7 +4650,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4613,7 +4676,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4639,7 +4702,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4665,7 +4728,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4691,7 +4754,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4714,7 +4777,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4740,7 +4803,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4766,7 +4829,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4792,7 +4855,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4818,7 +4881,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4844,7 +4907,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4870,7 +4933,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4893,7 +4956,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4916,7 +4979,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4939,7 +5002,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4965,7 +5028,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -4991,7 +5054,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5004,10 +5067,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_redefleshymeat01xb",
-		client = {
-			image = "roasted_buck_meat",
-		},
+		prop = "p_redefleshymeat01xb"
 	},
 
 	["cow_meat"] = {
@@ -5017,7 +5077,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5043,7 +5103,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5056,7 +5116,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5082,7 +5142,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5105,7 +5165,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5128,7 +5188,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5151,7 +5211,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5177,7 +5237,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5200,7 +5260,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5226,7 +5286,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5252,7 +5312,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5278,7 +5338,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5304,7 +5364,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5327,7 +5387,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5353,7 +5413,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5376,7 +5436,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5402,7 +5462,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5425,7 +5485,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5451,7 +5511,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -5474,7 +5534,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_pork_meat",
+		prop = "p_cs_steakslice02x",
 		client = {
 			image = "rawmeat.png",
 		},
@@ -10186,14 +10246,6 @@ return {
 		weight = 0,
 		stack = false,
 		close = true,
-		allowArmed = false,
-	},
-	["camping_4"] = {
-		label = "Hitching Post",
-		description = "furniture for camps",
-		weight = 0,
-		stack = false,
-		close = true,
 		prop = "p_chair02x",
 		client = {
 			image = "furniture.png",
@@ -12123,7 +12175,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rottenhand"] = {
@@ -12133,7 +12185,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rottenhead"] = {
@@ -12143,7 +12195,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rottenleg"] = {
@@ -12153,7 +12205,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybadge1"] = {
@@ -12163,7 +12215,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybadge2"] = {
@@ -12173,7 +12225,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybar"] = {
@@ -12183,7 +12235,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybelt"] = {
@@ -12193,7 +12245,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybelt1"] = {
@@ -12203,7 +12255,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybelt2"] = {
@@ -12213,7 +12265,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybullet"] = {
@@ -12223,7 +12275,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustychain"] = {
@@ -12233,7 +12285,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustycigarettecase"] = {
@@ -12243,7 +12295,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyclothes"] = {
@@ -12253,7 +12305,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustydollar"] = {
@@ -12263,7 +12315,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyholster1"] = {
@@ -12273,7 +12325,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyholster2"] = {
@@ -12283,7 +12335,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyhorseshoe"] = {
@@ -12293,7 +12345,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyironspur"] = {
@@ -12303,7 +12355,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustynails"] = {
@@ -12313,7 +12365,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustynugget"] = {
@@ -12323,7 +12375,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustypan"] = {
@@ -12333,7 +12385,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustypot"] = {
@@ -12343,7 +12395,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustybrooch"] = {
@@ -12353,7 +12405,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrevolver1"] = {
@@ -12363,7 +12415,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrevolver2"] = {
@@ -12373,7 +12425,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrevolver3"] = {
@@ -12383,7 +12435,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrevolver4"] = {
@@ -12393,7 +12445,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrevolver5"] = {
@@ -12403,7 +12455,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyrifle"] = {
@@ -12413,7 +12465,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyring1"] = {
@@ -12423,7 +12475,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyring2"] = {
@@ -12433,7 +12485,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustyring3"] = {
@@ -12443,7 +12495,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustysyringe"] = {
@@ -12453,7 +12505,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustytools"] = {
@@ -12463,7 +12515,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustywatch1"] = {
@@ -12473,7 +12525,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustywatch2"] = {
@@ -12483,7 +12535,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	["rustywatch3"] = {
@@ -12493,7 +12545,7 @@ return {
 		stack = true,
 		close = false,
 		allowArmed = false,
-		prop = "p_cs_stolen04x",
+		prop = "p_boxsmlleather01x",
 	},
 
 	-- Packages
@@ -12657,6 +12709,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12670,6 +12723,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12683,6 +12737,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12696,6 +12751,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12709,6 +12765,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12722,6 +12779,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12735,6 +12793,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12748,6 +12807,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12761,6 +12821,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12774,6 +12835,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12787,6 +12849,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12800,6 +12863,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12813,6 +12877,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12826,6 +12891,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12839,6 +12905,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12852,6 +12919,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12865,6 +12933,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12878,6 +12947,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12891,6 +12961,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12904,6 +12975,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12917,6 +12989,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12930,6 +13003,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12943,6 +13017,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12956,6 +13031,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12969,6 +13045,21 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
+		client = {
+			image = "seed.png",
+		},
+	},
+	["bberrypackage"] = {
+		label = "Black Berry Package",
+		description = "Find me at Seeds Market",
+		weight = 1500, -- In Grams
+		stack = true,
+		decay = true,
+		degrade = 4320, -- Minutes
+		close = true, -- if should close inventory when used
+		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -12982,6 +13073,7 @@ return {
 		degrade = 4320, -- Minutes
 		close = true, -- if should close inventory when used
 		allowArmed = true, -- should we let them use with weapons?
+		prop = "p_sack05x",
 		client = {
 			image = "seed.png",
 		},
@@ -13116,13 +13208,181 @@ return {
 		allowArmed = false, -- should we let them use with weapons?
 	},
 
-	["cabbage"] = {
-		label = "Cabbage",
-		description = "used by saloons",
-		weight = 50, -- In Grams
-		stack = true,
-		decay = false,
-		close = false, -- if should close inventory when used
+
+	-- Items
+	["calf"] = {
+        label = "Calf",
+        description = "",
+        weight = 1000, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+    ["cow"] = {
+        label = "Cow",
+        description = "",
+        weight = 1950, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+
+    ["babychicken"] = {
+        label = "baby chicken",
+        description = "",
+        weight = 1000, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+    ["chicken"] = {
+        label = "chicken",
+        description = "",
+        weight = 1250, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+
+    ["babybighornram"] = {
+        label = "baby big hornram",
+        description = "",
+        weight = 1000, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+    ["bighornram"] = {
+        label = "big hornram",
+        description = "",
+        weight = 1250, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+
+    ["babyboar"] = {
+        label = "baby boar",
+        description = "",
+        weight = 1000, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+    ["boar"] = {
+        label = "boar",
+        description = "",
+        weight = 1650, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+
+    ["babybuffalo"] = {
+        label = "baby buffalo",
+        description = "",
+        weight = 1000, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+    ["buffalo"] = {
+        label = "buffalo",
+        description = "",
+        weight = 2250, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+    },
+
+
+	["mdt"] = {
+		label = "MDT",
+		description = "Law Enforcement Equipment",
+		weight = 100, -- In Grams
+		stack = false,
+		close = true, -- if should close inventory when used
 		allowArmed = false, -- should we let them use with weapons?
+		prop = "p_clipboardset01x",
 	},
+
+
+
+
+
+	["oatmeal"] = {
+        label = "Oatmeal",
+        description = "A staple breakfast food, oatmeal was valued for its ability to provide sustained energy and warmth",
+        weight = 250, -- In Grams
+        stack = true,
+        decay = true,
+        degrade = 4320, -- Minutes
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "p_food02x",
+    },
+    ["walnuts"] = {
+        label = "Walnuts",
+        description = "Packed with essential fats and nutrients, walnuts were seen as brain food",
+        weight = 250, -- In Grams
+        stack = true,
+        decay = true,
+        degrade = 4320, -- Minutes
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "p_peanuts01x",
+    },
+    ["darkchocolate"] = {
+        label = "Dark Chocolate",
+        description = "They were cherished for their ability to boost mood and provide a sense of indulgence, helping to lift spirits in difficult times",
+        weight = 250, -- In Grams
+        stack = true,
+        decay = true,
+        degrade = 4320, -- Minutes
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "s_chocolatebar01x",
+    },
+    ["honey"] = {
+        label = "Honey",
+        description = "A natural sweetener and medicinal staple, honey was thought to have calming properties",
+        weight = 250, -- In Grams
+        stack = true,
+        decay = true,
+        degrade = 4320, -- Minutes
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "p_vase05x",
+    },
+    ["warmmilk"] = {
+        label = "Warm Milk",
+        description = "A timeless comfort drink, warm milk was often associated with relaxation and bedtime routines",
+        weight = 250, -- In Grams
+        stack = true,
+        decay = true,
+        degrade = 4320, -- Minutes
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "p_bottle001x",
+    },
+    ["alcohol"] = {
+        label = "Alcohol",
+        description = "When you drink me i give love",
+        weight = 1050, -- In Grams
+        stack = true,
+        close = true, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "p_bottle001x",
+    },
+    ["repairtool"] = {
+        label = "Weapon Repair Tool",
+        description = "Handy if you want to repair your weapon",
+        weight = 5000, -- In Grams
+        decay = true,
+        degrade = 21600, -- Minutes
+        stack = true,
+        close = false, -- if should close inventory when used
+        allowArmed = true, -- should we let them use with weapons?
+        prop = "s_firstaidkit_sm01x",
+    },
 }

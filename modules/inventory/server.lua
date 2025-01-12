@@ -172,7 +172,9 @@ local function loadInventoryData(data, player)
             inventory = Inventory.Create(data.id, plate, data.type, storage[1], 0, storage[2], false, nil, nil, dbId)
 		end
 	elseif data.type == 'policeevidence' then
-		inventory = Inventory.Create(data.id, locale('police_evidence'), data.type, 100, 0, 100000, false)
+		local evidenceNumber = data.id:match("%d+$")
+
+		inventory = Inventory.Create(data.id, locale('police_evidence') .. " " .. evidenceNumber, data.type, 100, 0, 50000000, false)
 	else
 		local stash = RegisteredStashes[data.id]
 
@@ -1527,6 +1529,9 @@ local function dropItem(source, playerInventory, fromData, data)
 
     if toData.weight > shared.playerweight then return end
 
+	local dropId = generateInvId('drop')
+
+
 	if not TriggerEventHooks('swapItems', {
 		source = source,
 		fromInventory = playerInventory.id,
@@ -1537,6 +1542,7 @@ local function dropItem(source, playerInventory, fromData, data)
 		toType = 'drop',
 		count = data.count,
         action = 'move',
+		dropId = dropId,
 	}) then return end
 
     fromData.count -= data.count
@@ -1556,24 +1562,19 @@ local function dropItem(source, playerInventory, fromData, data)
 		playerInventory.weapon = nil
 	end
 
-	local dropId
 	local itemData = Items(toData.name)
 
 	local prop = itemData?.prop or "p_satchel01x"
 	local itemLabel = itemData.label
 
-	if shared.persistent_items then
-		exports["persistent-items"]:CreateItemsDropStack(itemLabel, toData.name, toData.count, toData.metadata, prop, data.coords, source)
-	else
-		dropId = generateInvId('drop')
-		local inventory = Inventory.Create(dropId, ('Drop %s'):format(dropId:gsub('%D', '')), 'drop', shared.playerslots, toData.weight, shared.playerweight, false, {[data.toSlot] = toData})
 
-		if not inventory then return end
-		inventory.coords = data.coords
-		Inventory.Drops[dropId] = {coords = inventory.coords, instance = data.instance}
+	local inventory = Inventory.Create(dropId, ('Drop %s'):format(dropId:gsub('%D', '')), 'drop', shared.playerslots, toData.weight, shared.playerweight, false, {[data.toSlot] = toData})
 
-		TriggerClientEvent('ox_inventory:createDrop', -1, dropId, Inventory.Drops[dropId], playerInventory.open and source, slot)
-	end
+	if not inventory then return end
+	inventory.coords = data.coords
+	Inventory.Drops[dropId] = {coords = inventory.coords, instance = data.instance}
+
+	TriggerClientEvent('ox_inventory:createDrop', -1, dropId, Inventory.Drops[dropId], playerInventory.open and source, slot)
 
 	playerInventory.changed = true
 

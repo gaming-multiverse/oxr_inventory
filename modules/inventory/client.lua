@@ -82,7 +82,7 @@ function Inventory.OpenTrunk(entity)
 	if IS_RDR3 then
 
 		local vehicleUUID
-		if Entity(entity).state.wagonId then 
+		if Entity(entity).state.wagonId then
 			vehicleUUID = Entity(entity).state.wagonId
 		else
 			vehicleUUID = "temp:" .. netId
@@ -320,6 +320,21 @@ local function nearbyEvidence(point)
 	end
 end
 
+RegisterNetEvent('ox_inventory:client:openEvidence', function()
+	openEvidence()
+end)
+
+local function promptCreate(point)
+    exports['rsg-core']:createPrompt("evidence_" .. point.promptName .. "_" .. point.id, point.coords, 0xF3830D8E, point.promptName, {
+        type = 'client',
+        event = 'ox_inventory:client:openEvidence',
+    })
+end
+
+local function promptDelete(point)
+	exports['rsg-core']:deletePrompt("evidence_" .. point.promptName .. "_" .. point.id)
+end
+
 Inventory.Evidence = setmetatable(lib.load('data.evidence'), {
 	__call = function(self)
 		for _, evidence in pairs(self) do
@@ -345,12 +360,21 @@ Inventory.Evidence = setmetatable(lib.load('data.evidence'), {
 					end
 				else
 					evidence.target = nil
-					evidence.point = lib.points.new({
-						coords = evidence.coords,
-						distance = 16,
-						inv = 'policeevidence',
-						nearby = nearbyEvidence
-					})
+
+					for i = 1, #evidence.coords do
+						local coords = evidence.coords[i]
+
+						evidence.point = lib.points.new({
+							coords = coords,
+							distance = 16,
+							inv = 'policeevidence',
+							-- nearby = nearbyEvidence
+							promptName = evidence.name,
+							promptKey = evidence.promptKey,
+							onEnter = promptCreate,
+							onExit = promptDelete,
+						})
+					end
 				end
 			end
 		end

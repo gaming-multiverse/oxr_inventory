@@ -152,7 +152,9 @@ local function openInventory(source, invType, data, ignoreSecurityChecks)
 					right = Inventory.Create(data.metadata.container, data.label, invType, data.metadata.size[1], 0, data.metadata.size[2], false)
 				end
 			else left.containerSlot = nil end
-		else right = Inventory(data) end
+		else
+			right = Inventory(data)
+		end
 
 		if not right then return end
 
@@ -213,6 +215,19 @@ end
 ---@param data string|number|table
 lib.callback.register('ox_inventory:openInventory', function(source, invType, data)
 	return openInventory(source, invType, data)
+end)
+
+lib.callback.register('ox_inventory:checkOtherPlayersMoney', function(source, data)
+	local RSGCore = exports['rsg-core']:GetCoreObject()
+	local otherPlayerMoney = nil
+
+	for _, Player in pairs(RSGCore.Functions.GetRSGPlayers()) do
+		if Player.PlayerData.source == data then
+			otherPlayerMoney = Player.PlayerData.money.cash
+		end
+	end
+
+	return otherPlayerMoney
 end)
 
 ---@param netId number
@@ -282,6 +297,18 @@ RegisterNetEvent('ox_inventory:usedItemInternal', function(slot)
     TriggerEvent('ox_inventory:usedItem', inventory.id, item.name, item.slot, next(item.metadata) and item.metadata)
 
     inventory.usingItem = nil
+end)
+
+RegisterNetEvent("oxr_inventory:server:RemoveTrownWeapon", function(item)
+	local RemoveItem = Inventory.RemoveItem(source, item, 1)
+end)
+
+RegisterNetEvent("oxr_inventory:server:SetLassoDurability", function()
+	local weapon = Inventory.GetCurrentWeapon(source)
+    if weapon.name == 'WEAPON_LASSO' then
+        local dur = weapon.metadata.durability - 20
+        Inventory.SetDurability(source, weapon.slot, dur)
+    end
 end)
 
 ---@param source number
@@ -467,6 +494,7 @@ lib.addCommand({'additem', 'giveitem'}, {
 	},
 	restricted = 'group.admin',
 }, function(source, args)
+	local src = source
 	local item = Items(args.item)
 
 	if item then
@@ -479,6 +507,8 @@ lib.addCommand({'additem', 'giveitem'}, {
 		end
 
 		source = Inventory(source) or { label = 'console', owner = 'console' }
+
+        TriggerEvent('rsg-log:server:CreateLog', 'admin-give-item', 'Admin gave item', 'green', '**Admin name**: ' .. GetPlayerName(src) .. "\n" .. "**Gave Item**: " .. item.name .. "\n **Amount**: " .. count .. "\n **To Player**: " .. GetPlayerName(args.target) .. "\n **With ID**: " .. args.target, false)
 
 		if server.loglevel > 0 then
 			lib.logger(source.owner, 'admin', ('"%s" gave %sx %s to "%s"'):format(source.label, count, item.name, inventory.label))

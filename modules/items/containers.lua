@@ -58,4 +58,14 @@ setContainerProperties('cigarbox', {
 	whitelist = { 'cigar1', 'cigar2', 'cigar3', 'cigarette' }
 })
 
+setContainerProperties('doctorsatchel', {
+	slots = 10,
+	maxWeight = 40000,
+	whitelist = {
+		'self_revive',
+		'processedopium',
+		'herbalremedies'
+	}
+})
+
 return containers

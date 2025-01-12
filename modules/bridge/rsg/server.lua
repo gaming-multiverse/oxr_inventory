@@ -43,7 +43,7 @@ local function setupPlayer(Player)
     Player.PlayerData.name = ('%s %s'):format(Player.PlayerData.charinfo.firstname, Player.PlayerData.charinfo.lastname)
     server.setPlayerInventory(Player.PlayerData)
 
-    Inventory.SetItem(Player.PlayerData.source, 'money', Player.PlayerData.money.cash)
+    -- Inventory.SetItem(Player.PlayerData.source, 'money', Player.PlayerData.money.cash)
 
     RSGCore.Functions.AddPlayerMethod(Player.PlayerData.source, "AddItem", function(item, amount, slot, info)
         return Inventory.AddItem(Player.PlayerData.source, item, amount, info, slot)
@@ -71,8 +71,7 @@ local function setupPlayer(Player)
 
     RSGCore.Functions.AddPlayerMethod(Player.PlayerData.source, "SetInventory", function()
         -- ox_inventory's item structure is not compatible with rsg-inventory's one so we don't support it
-        error(
-            'Player.Functions.SetInventory is unsupported for ox_inventory. Try ClearInventory, then add the desired items.')
+        error('Player.Functions.SetInventory is unsupported for ox_inventory. Try ClearInventory, then add the desired items.')
     end)
 end
 
@@ -104,13 +103,13 @@ end
 AddEventHandler('RSGCore:Server:OnMoneyChange', function(src, account, amount, changeType)
     if account ~= "cash" then return end
 
-    local item = Inventory.GetItem(src, 'money', nil, false)
+    -- local item = Inventory.GetItem(src, 'money', nil, false)
 
-    if not item then return end
+    -- if not item then return end
 
-    Inventory.SetItem(src, 'money',
-        changeType == "set" and amount or changeType == "remove" and item.count - amount or
-        changeType == "add" and item.count + amount)
+    -- local newAmount = changeType == "set" and amount or changeType == "remove" and item.count - amount or changeType == "add" and item.count + amount
+
+    -- Inventory.SetItem(src, 'money', newAmount)
 end)
 
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -135,14 +134,14 @@ end
 function server.syncInventory(inv)
     local accounts = Inventory.GetAccountItemCounts(inv)
 
-    if accounts then
+    --[[ if accounts then
         local player = server.GetPlayerFromId(inv.id)
         player.Functions.SetPlayerData('items', inv.items)
 
         if accounts.money and accounts.money ~= player.Functions.GetMoney('cash') then
             player.Functions.SetMoney('cash', accounts.money, "Sync money with inventory")
         end
-    end
+    end ]]
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -158,11 +157,11 @@ function server.buyLicense(inv, license)
 
     if player.PlayerData.metadata.licences[license.name] then
         return false, 'already_have'
-    elseif Inventory.GetItemCount(inv, 'money') < license.price then
-        return false, 'can_not_afford'
+    -- elseif Inventory.GetItemCount(inv, 'money') < license.price then
+    --     return false, 'can_not_afford'
     end
 
-    Inventory.RemoveItem(inv, 'money', license.price)
+    -- Inventory.RemoveItem(inv, 'money', license.price)
     player.PlayerData.metadata.licences[license.name] = true
     player.Functions.SetMetaData('licences', player.PlayerData.metadata.licences)
 
@@ -190,13 +189,13 @@ function server.convertInventory(playerId, items)
                     end
                 end
 
-                if not hasThis then
-                    local amount = player.Functions.GetMoney(name == 'money' and 'cash' or name)
+                -- if not hasThis then
+                --     local amount = player.Functions.GetMoney(name == 'money' and 'cash' or name)
 
-                    if amount then
-                        items[#items + 1] = { name = name, amount = amount }
-                    end
-                end
+                --     if amount then
+                --         items[#items + 1] = { name = name, amount = amount }
+                --     end
+                -- end
             end
         end
 

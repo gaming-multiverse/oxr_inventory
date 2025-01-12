@@ -53,7 +53,6 @@ function Weapon.Equip(item, data, noWeaponAnim)
 	if IS_GTAV then
 		GiveWeaponToPed(playerPed, data.hash, 0, false, true)
 	elseif IS_RDR3 then
-
 		if not HasPedGotWeapon(playerPed, data.hash, 0, false) then
 
 			local currentWeaponAmmo = GetAmmoInPedWeapon(playerPed, data.hash)
@@ -61,11 +60,12 @@ function Weapon.Equip(item, data, noWeaponAnim)
 			-- RemoveAmmoFromPed
 			N_0xf4823c813cb8277d(playerPed, data.hash, currentWeaponAmmo, `REMOVE_REASON_DEBUG`)
 
+			-- TriggerEvent('rsg-weaponcomp:client:LoadComponents')
 			--[[ GiveWeaponToPed ]]
 			if data.throwable then
-				Citizen.InvokeNative(0xB282DC6EBD803C75, playerPed, data.hash, tonumber(item.count), true, 0) -- GIVE_DELAYED_WEAPON_TO_PED
+				GiveDelayedWeaponToPed(playerPed, data.hash, tonumber(item.count), true, 0) -- GIVE_DELAYED_WEAPON_TO_PED
 			else
-				Citizen.InvokeNative(0xB282DC6EBD803C75, playerPed, data.hash, item.metadata.ammo, true, 0) -- GIVE_DELAYED_WEAPON_TO_PED
+				GiveDelayedWeaponToPed(playerPed, data.hash, item.metadata.ammo, true, 0) -- GIVE_DELAYED_WEAPON_TO_PED
 			end
 		end
 	end
@@ -168,18 +168,18 @@ function Weapon.Disarm(currentWeapon, noAnim, keepHolstered)
 	if IS_RDR3 and currentWeapon then
 		if not keepHolstered then
 			local ammoHash = GetPedAmmoTypeFromWeapon(cache.ped, currentWeapon.hash)
-			Citizen.InvokeNative(0xB6CFEC32E3742779, cache.ped, ammoHash, currentWeapon.ammo, GetHashKey('REMOVE_REASON_DROPPED'))  --_REMOVE_AMMO_FROM_PED_BY_TYPE
+			RemoveAmmoFromPedByType(cache.ped, ammoHash, currentWeapon.ammo, GetHashKey('REMOVE_REASON_DROPPED'))  --_REMOVE_AMMO_FROM_PED_BY_TYPE
 
 			RemoveWeaponFromPed(cache.ped, currentWeapon.hash)
 		end
 
 		--[[ GetPedCurrentHeldWeapon]]
-		local heldWeapon = N_0x8425c5f057012dab(cache.ped)
+		local heldWeapon = GetPedCurrentHeldWeapon(cache.ped)
 
 		--[[ Only use Swap if the weapon currently carried by the ped is the same one we are trying to disarm. ]]
 		if heldWeapon == currentWeapon.hash then
 			--[[ HolsterPedWeapons ]]
-			N_0x94a3c1b804d291ec(cache.ped, false, false, true, false)
+			HolsterPedWeapons(cache.ped, false, false, true, false)
 
 			TaskSwapWeapon(cache.ped, 0, 0, 0, 0)
 		end

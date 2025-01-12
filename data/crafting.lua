@@ -1,4 +1,5 @@
 return {
+	-- TODO: Make it work in REDM
 	{
 		items = {
 			{

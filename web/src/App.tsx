@@ -88,10 +88,10 @@ debugData([
         ],
       },
       rightInventory: {
-        id: 'shop',
-        type: 'crafting',
+        id: 'player',
+        type: 'otherplayer',
         slots: 5000,
-        label: 'Bob Smith',
+        label: '',
         weight: 3000,
         maxWeight: 5000,
         items: [

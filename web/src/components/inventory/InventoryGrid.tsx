@@ -6,6 +6,7 @@ import { getTotalWeight } from '../../helpers';
 import { useAppSelector } from '../../store';
 import { useIntersection } from '../../hooks/useIntersection';
 import InventoryControl from './InventoryControl';
+import OtherPlayerInventoryControl from './OtherPlayerInventoryControl';
 
 const PAGE_SIZE = 30;
 
@@ -20,7 +21,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
   const { ref, entry } = useIntersection({ threshold: 0.5 });
   const isBusy = useAppSelector((state) => state.inventory.isBusy);
 
-  useEffect(() => {        
+  useEffect(() => {
     checkInventoryNeedOpen()
   }, [inventory])
 
@@ -50,9 +51,13 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
   }, [entry]);
   return (
     <div className={`rootInventory`}>
-    
-      {inventory.type == "player"?             
+
+      {inventory.type == "player"?
           <InventoryControl />
+      : ''}
+
+      {inventory.type == "otherplayer"?
+          <OtherPlayerInventoryControl />
       : ''}
 
       <div className={`inventory-grid-wrapper inventory_background ${inventoryVisible ? 'active' : ''}`}  style={{ pointerEvents: isBusy ? 'none' : 'auto' }}>
@@ -77,7 +82,6 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
         </div>
 
         <div className="bottom-weight">
-
             {inventory.maxWeight && (
               <span className="weight-label">
                 {weight / 1000}
@@ -85,7 +89,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
             )}
 
             <WeightBar percent={inventory.maxWeight ? (weight / inventory.maxWeight) * 100 : 0} />
-            
+
             {inventory.maxWeight && (
               <span className="weight-label">
                 {inventory.maxWeight / 1000}kg

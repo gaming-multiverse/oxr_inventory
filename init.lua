@@ -15,10 +15,11 @@ end
 shared = {
     resource = GetCurrentResourceName(),
     framework = GetConvar('inventory:framework', 'rsg'),
-    playerslots = GetConvarInt('inventory:slots', 35),
+    playerslots = GetConvarInt('inventory:slots', 30),
     playerweight = GetConvarInt('inventory:weight', 50000),
     target = GetConvarInt('inventory:target', 0) == 1,
-    police = json.decode(GetConvar('inventory:police', '["police", "sheriff"]')),
+    police = json.decode(GetConvar('inventory:police', '["police"]')),
+    medic = json.decode(GetConvar('inventory:medic', '["medic"]')),
     persistent_items = GetConvarInt('inventory:persistent_items', 0) == 1 -- for REDM only
 }
 

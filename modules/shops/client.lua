@@ -73,7 +73,7 @@ local function onEnterShop(point)
 end
 
 local function promptCreate(point)
-    exports['rsg-core']:createPrompt("Prompt_" .. point.promptName, point.coords, 0xF3830D8E, point.promptName, {
+    exports['rsg-core']:createPrompt("Prompt_" .. point.promptName .. "_" .. point.id, point.coords, 0xF3830D8E, point.promptName, {
         type = 'client',
         event = 'inventory:client:OpenInventory',
         args = { 'shop', {id = point.invId, type = point.type} },
@@ -81,7 +81,7 @@ local function promptCreate(point)
 end
 
 local function promptDelete(point)
-	exports['rsg-core']:deletePrompt("Prompt_" .. point.promptName)
+	exports['rsg-core']:deletePrompt("Prompt_" .. point.promptName .. "_" .. point.id)
 end
 
 local Utils = require 'modules.utils.client'

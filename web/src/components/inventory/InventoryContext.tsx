@@ -98,7 +98,7 @@ const InventoryContext: React.FC = () => {
       <Menu>
         <MenuItem onClick={() => handleClick({ action: 'use' })} label={Locale.ui_use || 'Use'} />
         <MenuItem onClick={() => handleClick({ action: 'give' })} label={Locale.ui_give || 'Give'} />
-        <MenuItem onClick={() => handleClick({ action: 'place' })} label={Locale.ui_place || 'Place'} />
+        {/* {<MenuItem onClick={() => handleClick({ action: 'place' })} label={Locale.ui_place || 'Place'} />} */}
         <MenuItem onClick={() => handleClick({ action: 'drop' })} label={Locale.ui_drop || 'Drop'} />
         {/* {item && item.metadata?.ammo > 0 && (
           <MenuItem onClick={() => handleClick({ action: 'removeAmmo' })} label={Locale.ui_remove_ammo} />

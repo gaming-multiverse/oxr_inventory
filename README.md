@@ -24,6 +24,9 @@ This project is licensed under the GNU General Public License v3.0 (GPL-3.0). Se
 The original `ox_inventory` script is credited to the Overextended team.
 Modifications were made originaly by the [frp team](https://discord.gg/uVDf5kGbB8) & later fixed and improved by [Gaming Multiverse](https://github.com/gaming-multiverse).
 
+## Dependencies
+- [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs)
+
 ## Build & UI Info
 
 ### Web based testing

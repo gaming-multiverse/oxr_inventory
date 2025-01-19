@@ -27,6 +27,13 @@ Modifications were made originaly by the [frp team](https://discord.gg/uVDf5kGbB
 ## Dependencies
 - [jo_libs](https://github.com/Jump-On-Studios/RedM-jo_libs)
 
+## Changes in your server.cfg (place these at the bottom of your server.cfg)
+```
+setr inventory:dropprops true
+setr inventory:dropmodel "P_COTTONBOX01X"
+set inventory:versioncheck false
+```
+
 ## Build & UI Info
 
 ### Web based testing
